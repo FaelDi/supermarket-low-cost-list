@@ -8,10 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
@@ -34,7 +32,6 @@ class MasterSupermercadosControllerTest {
                 MasterSupermercadosResponseProducts.builder().produtos(arrayList).build();
         when(masterSupermercadosImpl.getProducts("teste")).thenReturn(masterSupermercadosResponseProductsMock);
         when(masterSupermercadosService.getProducts("teste")).thenReturn(masterSupermercadosResponseProductsMock);
-
         MasterSupermercadosResponseProducts masterSupermercadosResponseProducts = masterSupermercadosController.getProducts("teste");
         assertEquals(masterSupermercadosResponseProductsMock,masterSupermercadosResponseProducts);
     }
