@@ -1,4 +1,4 @@
-package com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.http;
+package com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;

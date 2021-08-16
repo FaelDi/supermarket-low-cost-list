@@ -1,6 +1,7 @@
 package com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.service;
 
-import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.http.MasterSupermercadosResponseProducts;
+import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.model.MasterSupermercadosProduct;
+import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.model.MasterSupermercadosResponseProducts;
 import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.logic.MasterSupermercadosImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,10 @@ public class MasterSupermercadosService {
 
     public MasterSupermercadosResponseProducts getProducts(String product) throws IOException, InterruptedException {
         return masterSupermercadosImpl.getProducts(product);
+    }
+
+    public MasterSupermercadosProduct getLowestPrice(String product) throws IOException, InterruptedException {
+        return masterSupermercadosImpl.getLowestPrice(product);
     }
 
 }

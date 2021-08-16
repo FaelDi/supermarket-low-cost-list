@@ -1,6 +1,8 @@
 package com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.controller;
 
-import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.http.MasterSupermercadosResponseProducts;
+import com.wordpress.faeldi.supermarketlowcostlist.exceptions.Error;
+import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.model.MasterSupermercadosProduct;
+import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.model.MasterSupermercadosResponseProducts;
 import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.service.MasterSupermercadosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +27,15 @@ public class MasterSupermercadosController {
     @GetMapping("search/{product}")
     public MasterSupermercadosResponseProducts getProducts(@PathVariable String product) throws IOException, InterruptedException {
         return masterSupermercadosService.getProducts(product);
+    }
+
+    @GetMapping("search/menorValor/{product}")
+    public Object getLowestValue(@PathVariable String product) throws IOException, InterruptedException {
+        MasterSupermercadosProduct masterSupermercadosProduct = masterSupermercadosService.getLowestPrice(product);
+        if(masterSupermercadosProduct != null) {
+            return masterSupermercadosProduct;
+        }
+        return Error.builder().error("Nao encontrado").build();
     }
 
 }

@@ -1,6 +1,6 @@
 package com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.controller;
 
-import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.http.MasterSupermercadosResponseProducts;
+import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.model.MasterSupermercadosResponseProducts;
 import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.logic.MasterSupermercadosImpl;
 import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.model.MasterSupermercadosProduct;
 import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.service.MasterSupermercadosService;

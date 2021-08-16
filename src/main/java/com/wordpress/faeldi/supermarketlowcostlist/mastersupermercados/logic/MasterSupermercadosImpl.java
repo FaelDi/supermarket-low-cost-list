@@ -2,10 +2,10 @@ package com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.logic;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.http.MasterSupermercadosRequestProducts;
-import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.http.MasterSupermercadosResponseProducts;
+import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.model.MasterSupermercadosProduct;
+import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.model.MasterSupermercadosRequestProducts;
+import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.model.MasterSupermercadosResponseProducts;
 import org.springframework.stereotype.Component;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -13,6 +13,8 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.NoSuchElementException;
 
 @Component
 public class MasterSupermercadosImpl {
@@ -50,5 +52,16 @@ public class MasterSupermercadosImpl {
 
         MasterSupermercadosResponseProducts masterSupermercadosProducts = objectMapper.readValue(object, MasterSupermercadosResponseProducts.class);
         return masterSupermercadosProducts;
+    }
+
+    public MasterSupermercadosProduct getLowestPrice(String product) throws IOException, InterruptedException {
+        MasterSupermercadosResponseProducts masterSupermercadosResponseProducts = getProducts(product);
+        MasterSupermercadosProduct masterSupermercadosProduct = null;
+        if(!masterSupermercadosResponseProducts.getProdutos().isEmpty()) {
+            masterSupermercadosProduct = masterSupermercadosResponseProducts
+                    .getProdutos().stream()
+                    .min(Comparator.comparing(MasterSupermercadosProduct::getMny_vlr_produto_por)).orElseThrow(NoSuchElementException::new);
+        }
+        return masterSupermercadosProduct;
     }
 }

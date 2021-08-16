@@ -1,8 +1,7 @@
 package com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.logic;
 
-import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.http.MasterSupermercadosResponseProducts;
+import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.model.MasterSupermercadosResponseProducts;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 

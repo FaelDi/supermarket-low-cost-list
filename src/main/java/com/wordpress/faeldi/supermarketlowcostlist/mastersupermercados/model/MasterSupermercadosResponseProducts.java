@@ -1,8 +1,7 @@
-package com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.http;
+package com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.model.MasterSupermercadosProduct;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
