@@ -1,15 +1,13 @@
 package com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MasterSupermercadosProduct {
+@ToString
+public class MSProduct {
 
     private int id_produto;
     private String str_id_integrador;

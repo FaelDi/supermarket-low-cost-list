@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MasterSupermercadosProductTest {
+class MSProductTest {
              
     private final int id_produto = 5504;
     private final String str_id_integrador = "62042";
@@ -42,8 +42,8 @@ class MasterSupermercadosProductTest {
 
     @Test
     public void testModelBuilder() {
-        MasterSupermercadosProduct product =
-                MasterSupermercadosProduct
+        MSProduct product =
+                MSProduct
                         .builder()
                         .id_produto(id_produto)
                         .str_id_integrador(str_id_integrador)

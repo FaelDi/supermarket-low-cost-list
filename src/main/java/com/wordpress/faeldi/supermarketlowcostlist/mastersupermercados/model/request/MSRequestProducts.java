@@ -1,15 +1,16 @@
-package com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.model;
+package com.wordpress.faeldi.supermarketlowcostlist.mastersupermercados.model.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-
+import java.io.Serializable;
 import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder
-public class MasterSupermercadosRequestProducts {
+@ToString
+public class MSRequestProducts implements Serializable {
 
     @JsonProperty("descricao")
     private String descricao;
